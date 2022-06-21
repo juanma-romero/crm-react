@@ -1,10 +1,43 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 import { Formik, Form, Field} from 'formik'
+import * as Yup from 'yup'
+import Alerta from './Alerta'
 
 const Formulario = () => {
 
-  const handleSubmit = (valores) => {
-    console.log(valores)
+    const navigate = useNavigate()
+
+    const nuevoClienteSchema = Yup.object().shape({
+        nombre: Yup.string().required('El nombre es obligatorio').min(2, 'el nombre es muy corto'). max(12, 'el nombre es muy largo'),
+        empresa: Yup.string().required('El nombre de la empresa es obligatorio'),
+        email: Yup.string().email('Email no valido').required('El emial es obligatorio'),
+        telefono: Yup.number().typeError('El numero no es valido').positive('Numero no valido').integer('Numero no valido'),
+        observaciones: Yup.string()
+    })
+
+  
+  const handleSubmit = async (values) => {
+    try {
+        const url = 'http://localhost:4000/clientes'
+
+        const respuesta = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(values),
+            
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        
+        console.log(respuesta)
+        const resultado = await respuesta.json()
+        console.log(resultado)
+        navigate('/clientes')
+
+    } catch (error) {
+        console.log(error)
+    }
   }
 
   return (
@@ -19,13 +52,19 @@ const Formulario = () => {
                 observaciones: '',
             }}
 
-            onSubmit = { (values) => {
-                handleSubmit(values)
-            }
+            onSubmit = { async (values, {resetForm}) => {
+                await handleSubmit(values)
 
+                resetForm()
             }
+            }
+            validationSchema = {nuevoClienteSchema}
             >
-            { () => (
+
+
+            { ({errors, touched}) => {
+                
+                return (
             <Form
                 className='mt-10'
             >
@@ -42,6 +81,9 @@ const Formulario = () => {
                         name= 'nombre'
                     ></Field>
 
+                    {errors.nombre && touched.nombre ? (
+                        <Alerta>{errors.nombre}</Alerta>) : null }
+
                 </div>
                 <div className = 'mb-4'>
                     <label
@@ -56,6 +98,10 @@ const Formulario = () => {
                         name = 'empresa'
                     ></Field>
                     
+                    {errors.empresa && touched.empresa ? (
+                        <Alerta>{errors.empresa}</Alerta>) : null }
+
+
                 </div>
                 <div className = 'mb-4'>
                     <label
@@ -70,6 +116,9 @@ const Formulario = () => {
                         name = 'email'
                     ></Field>
                     
+                    {errors.email && touched.email ? (
+                        <Alerta>{errors.email}</Alerta>) : null }
+
                 </div>
                 <div className = 'mb-4'>
                     <label
@@ -83,6 +132,9 @@ const Formulario = () => {
                         placeholder = 'Telefono del Cliente'
                         name = 'telefono'
                     ></Field>
+
+                        {errors.telefono && touched.telefono ? (
+                        <Alerta>{errors.telefono}</Alerta>) : null }   
                     
                 </div>
                 <div className = 'mb-4'>
@@ -105,7 +157,7 @@ const Formulario = () => {
                     value= 'Agregar cliente'
                     className = 'mt-5 w-full p-3 bg-blue-800 text-white uppercase font-bold text-lg'
                 />
-            </Form>)}
+            </Form>)}}
         </Formik>
     </div>
   )

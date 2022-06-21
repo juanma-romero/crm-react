@@ -1,0 +1,36 @@
+{
+  "clientes": [
+    {
+      "nombre": "Juan Manuel",
+      "empresa": "Voraz",
+      "email": "xjuanmax@hotmail.com",
+      "telefono": "0985214420",
+      "observaciones": "serer22",
+      "id": 1
+    },
+    {
+      "nombre": "Juan Manuel",
+      "empresa": "Voraz",
+      "email": "xjuanmax@hotmail.com",
+      "telefono": "0985214420",
+      "observaciones": "a",
+      "id": 2
+    },
+    {
+      "nombre": "Juan Manuel",
+      "empresa": "Voraz",
+      "email": "xjuanmax@hotmail.com",
+      "telefono": "0985214420",
+      "observaciones": "sasa",
+      "id": 3
+    },
+    {
+      "nombre": "Thefrixx_Reb",
+      "empresa": "Voraz2",
+      "email": "xjuanma.romerox@gmail.com",
+      "telefono": "+595983610901",
+      "observaciones": "sssss",
+      "id": 4
+    }
+  ]
+}
