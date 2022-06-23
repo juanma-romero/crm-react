@@ -30,7 +30,7 @@ const Formulario = () => {
             }
         })
         
-        console.log(respuesta)
+        
         const resultado = await respuesta.json()
         console.log(resultado)
         navigate('/clientes')
