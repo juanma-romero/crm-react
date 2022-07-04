@@ -1,28 +1,12 @@
 {
   "clientes": [
     {
-      "nombre": "Juan Manuel",
+      "nombre": "Juanma",
       "empresa": "Voraz",
       "email": "xjuanmax@hotmail.com",
       "telefono": "0985214420",
       "observaciones": "serer22",
       "id": 1
-    },
-    {
-      "nombre": "Juan Manuel",
-      "empresa": "Voraz",
-      "email": "xjuanmax@hotmail.com",
-      "telefono": "0985214420",
-      "observaciones": "a",
-      "id": 2
-    },
-    {
-      "nombre": "Juan Manuel",
-      "empresa": "Voraz",
-      "email": "xjuanmax@hotmail.com",
-      "telefono": "0985214420",
-      "observaciones": "sasa",
-      "id": 3
     },
     {
       "nombre": "Thefrixx_Reb",
@@ -39,6 +23,30 @@
       "telefono": "09852144545",
       "observaciones": "",
       "id": 5
+    },
+    {
+      "nombre": "juance",
+      "empresa": "Voraz",
+      "email": "xjuanmax@hotmail.com",
+      "telefono": "0985214420",
+      "observaciones": "serer22",
+      "id": 6
+    },
+    {
+      "nombre": "Juancho",
+      "empresa": "Voraz",
+      "email": "xjuanmax@hotmail.com",
+      "telefono": "0985214420",
+      "observaciones": "serer22",
+      "id": 7
+    },
+    {
+      "nombre": "jose",
+      "empresa": "soe",
+      "email": "xjuaoe@hotmail.com",
+      "telefono": "+595983610901151",
+      "observaciones": "sal",
+      "id": 9
     }
   ]
 }
